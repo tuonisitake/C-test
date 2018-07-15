@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <!-- 配置类和表对应
+       class标签
+       name属性：实体类全路径
+       table属性：数据库表名称
+        -->
+  <class name="com.dj.entity.TestRecord" table="t_testrecord">
+  <!-- id标签 name属性：实体类里面id属性名称 column属性：生成的表字段名称 -->
+    <id name="trid" column="trid">
+      <generator class="native"></generator>
+    
+    </id>
+    <!-- 配置其他属性和表字段对应
+         name属性：实体类属性名称
+         column属性：生成表字段名称
+          -->
+        <property name="trname" column="trname"/>
+ 		<property name="trdate" column="trdate"/>
+ 		<property name="stime" column="stime"/>
+ 		<property name="etime" column="etime"/>
+ 		<property name="trscore" column="trscore"/>
+ 		<set name="answerSituation" cascade="save-update,delete">
+ 		  <key column="trid"></key>
+ 		  <one-to-many class="com.dj.entity.AnswerSituation"/>
+ 		
+ 		</set>
+ 		<many-to-one name="testPaper" class="com.dj.entity.TestPaper" column="tpid"></many-to-one>
+        <many-to-one name="user" class="com.dj.entity.User" column="uid"></many-to-one>
+  </class>
+
+
+</hibernate-mapping>

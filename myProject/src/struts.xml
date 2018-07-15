@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="default" namespace="/" extends="struts-default">
+ <!-- ====================用户Action配置====================== -->
+ <action name="user_*" class="userAction"  method="{1}">
+      <result name="login">/userlogin.jsp</result>
+      <result name="loginsuccess">/user/all.jsp</result>
+      <result name="ckTestRecord">/user/cktestrecord.jsp</result>
+      <result name="ckAnswerSituation">/user/ckanswersituation.jsp</result>
+      <!-- 我的班级 -->
+      <result name="myBanJi">/user/mybj.jsp</result>
+      <!-- 修改密码 -->
+      <result name="updatePW">/user/upwsuccess.jsp</result>
+      <!-- 查看所有用户 -->
+      <result name="ckAllUser">/admin/ckalluser.jsp</result>
+      <!-- 注销 -->
+      <result name="sessionDestroy">/userlogin.jsp</result>
+ </action>
+  <!-- ===================管理员Action配置====================== -->
+  <action name="admin_*" class="adminAction" method="{1}">
+      <result name="login">/adminlogin.jsp</result>
+      <result name="loginsuccess">/admin/all.jsp</result>
+      <!-- 查看我的信息 -->
+      <result name="ckMyInfo">/admin/ckxx.jsp</result>
+      <!-- 修改密码 -->
+      <result name="updatePW">/admin/upw.jsp</result>
+      <!-- 成功修改密码 -->
+      <result name="updatePWSX">/user/upwsuccess.jsp</result>
+      <!-- 查看考试记录 -->
+      <result name="ckTestRecord">/admin/cktestrecord.jsp</result>
+      <!-- 删除考试记录 -->
+      <result name="deleteTestRecord">/admin/deletes.jsp</result>
+      <!-- 查看用户答题情况 -->
+      <result name="ckAnswerSituation">/admin/ckanswersituation.jsp</result>
+      <!-- 注销 -->
+      <result name="sessionDestory">/adminlogin.jsp</result>
+  
+  </action>
+  <!-- ====================考试Action配置===================== -->
+  <action name="test_*" class="testAction" method="{1}">
+      <result name="startTest">/user/starttest.jsp</result>
+      <!-- 单元测试 -->
+      <result name="unitTest">/user/unitTest.jsp</result>
+      <!-- 测试结果 -->
+      <result name="showResult">/user/showresult.jsp</result>
+  
+  
+  </action>
+  <!-- =====================考试记录Action配置================= -->
+  <action name="testRecord_*" class="testRecordAction" method="{1}">
+     <result name="endTest">/user/testend.jsp</result>
+  
+  
+  </action>
+  <!-- ======================试题Action配置====================== -->
+  <action name="question_*" class="questionAction" method="{1}">
+  <!-- 查看选择题详细信息 -->
+     <result name="ckxzQuestion">/user/ckxzquestion.jsp</result>
+     <result name="ckaxzQuestion">/admin/ckxzquestion.jsp</result>
+     <!-- 查看判断题详细信息 -->
+     <result name="ckpdQuestion">/user/ckpdquestion.jsp</result>
+     <result name="ckapdQuestion">/admin/ckpdquestion.jsp</result>
+     <!-- 查看填空题详细信息 -->
+     <result name="cktkQuestion">/user/cktkquestion.jsp</result>
+     <result name="ckatkQuestion">/admin/cktkquestion.jsp</result>
+     <!-- 查找试题页面 -->
+     <result name="ckQuestionPage">/admin/ckqxzqt.jsp</result>
+     <result name="ckQuestion">/admin/ckqxzqt.jsp</result>
+     <!-- 添加选择题 -->
+     <result name="addxzq">/admin/addqsuccess.jsp</result>
+     <!-- 添加判断题 -->
+     <result name="addpdq">/admin/addqsuccess.jsp</result>
+     <!-- 添加填空题 -->
+     <result name="addtkq">/admin/addqsuccess.jsp</result>
+     <result name="input">/showStrutsError.jsp</result>  
+     <result name="uploadxzq">/admin/addqsuccess.jsp</result>
+     
+  
+  </action>
+  <!-- =====================试卷Action配置============ -->
+  <action name="testPaper_*" class="testPaperAction" method="{1}">
+     <result name="ckTestPaper">/admin/cktestpaper.jsp</result>
+     <result name="ckTPQuestion">/admin/cktpquestion.jsp</result>
+     <result name="addTestPaper">/admin/tjpaper.jsp</result>
+     <result name="tjTestPaperSX">/admin/tjsuccess.jsp</result>
+     <!-- 删除试卷 -->
+     <result name="deleteTestPaper">/admin/scsuccess.jsp</result>
+     
+  </action>
+  <!-- ======================班级Action配置=========== -->
+  <action name="banJi_*" class="banJiAction" method="{1}">
+     <!-- 查看班级 -->
+     <result name="ckbj">/admin/ckbj.jsp</result>
+     <!-- 查看班级人员 -->
+     <result name="ckBJUsers">/admin/ckbjusers.jsp</result>
+  
+  </action>
+  <!-- ======================答题情况Action=========== -->
+  <action name="answerSituation_*" class="answerSituationAction" method="{1}">
+    <!-- 考试结束 -->
+    <result name="testend">/user/testend.jsp</result>
+  
+  
+  </action>
+ 
+ </package>
+
+</struts>    

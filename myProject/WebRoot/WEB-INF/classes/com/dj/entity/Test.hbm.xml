@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <!-- 配置类和表对应
+       class标签
+       name属性：实体类全路径
+       table属性：数据库表名称
+        -->
+  <class name="com.dj.entity.Test" table="t_test">
+  <!-- id标签 name属性：实体类里面id属性名称 column属性：生成的表字段名称 -->
+    <id name="tid" column="tid">
+      <generator class="native"></generator>
+    
+    </id>
+    <!-- 配置其他属性和表字段对应
+         name属性：实体类属性名称
+         column属性：生成表字段名称
+          -->
+     <property name="tdate" column="tdate"></property>
+     <property name="tname" column="tname"></property>
+     <many-to-one name="testPaper" class="com.dj.entity.TestPaper" column="tpid"></many-to-one>
+
+  </class>
+
+
+</hibernate-mapping>
